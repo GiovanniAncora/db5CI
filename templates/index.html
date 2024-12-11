@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="static/style.css">
     <title>Alunni</title>
 </head>
 <body>
     <h1>Tabella Dinamica Alunni</h1>
+    <h4>da Giovanni Ancora</h4>
     <table>
         <thead>
             <tr>
-                <th>Cognome</th>
-                <th>Nome</th>
-                <th>Data nascita</th>
-                <th>Matricola</th>
+                {% for campo in campi%}
+                <th>{{campo[0]}}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>

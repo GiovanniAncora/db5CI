@@ -7,12 +7,11 @@ query = 'SELECT * FROM alunni'
 cursore.execute(query)
 
 risultato = cursore.fetchall()
-print(risultato)
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', alunni= risultato)
+    return render_template('index.html', alunni= risultato, campi= cursore.description)
 
 app.run(debug=True)
