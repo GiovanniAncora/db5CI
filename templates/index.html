@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunni</title>
+</head>
+<body>
+    <h1>Tabella Dinamica Alunni</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Cognome</th>
+                <th>Nome</th>
+                <th>Data nascita</th>
+                <th>Matricola</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for alunno in alunni %}
+            <tr>
+                <td>{{alunno[0]}}</td>
+                <td>{{alunno[1]}}</td>
+                <td>{{alunno[2]}}</td>
+                <td>{{alunno[3]}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
