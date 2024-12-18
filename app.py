@@ -14,4 +14,11 @@ app = Flask(__name__)
 def index():
     return render_template('index.html', alunni= risultato, campi= cursore.description)
 
+@app.route('/<studente>')
+def voti(studente):
+    queryVoti = 'SELECT * FROM verifiche WHERE studente = %s'
+    cursore.execute(queryVoti, (studente,))
+    risultatoVoti = cursore.fetchall()
+    return render_template("voti.html", voti=risultatoVoti)
+
 app.run(debug=True)
