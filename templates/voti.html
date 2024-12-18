@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voti</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Disciplina</th>
+                <th>Data</th>
+                <th>Studente</th>
+                <th>Voto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in voti %}
+            <tr>
+                <td>{{ v[0] }}</td>
+                <td>{{ v[1] }}</td>
+                <td>{{ v[2] }}</td>
+                <td>{{ v[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
