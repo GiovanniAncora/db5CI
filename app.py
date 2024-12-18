@@ -23,7 +23,7 @@ def voti(studente):
 
 @app.route('/medie')
 def medie():
-    queryMedie = 'SELECT nome, cognome, AVG(voto) AS media FROM alunni, verifiche WHERE alunni.matricola = verifiche.studente GROUP BY studente'
+    queryMedie = 'SELECT cognome, nome, AVG(voto) AS media FROM alunni, verifiche WHERE alunni.matricola = verifiche.studente GROUP BY studente'
     cursore.execute(queryMedie)
     risultatoMedie = cursore.fetchall()
     # print(risultatoMedie)
