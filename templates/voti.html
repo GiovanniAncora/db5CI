@@ -10,10 +10,9 @@
     <table class="w3-table-all w3-hoverable">
         <thead>
             <tr>
-                <th>Disciplina</th>
-                <th>Data</th>
-                <th>Voto</th>
-                <th>Studente</th>
+                {% for c in campi %}
+                <th>{{c[0].upper()}}</th>
+                {% endfor %}
             </tr>
         </thead>
         <tbody>

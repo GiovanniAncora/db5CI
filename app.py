@@ -19,6 +19,6 @@ def voti(studente):
     queryVoti = 'SELECT * FROM verifiche WHERE studente = %s'
     cursore.execute(queryVoti, (studente,))
     risultatoVoti = cursore.fetchall()
-    return render_template("voti.html", voti=risultatoVoti)
+    return render_template("voti.html", voti=risultatoVoti, campi= cursore.description)
 
 app.run(debug=True)
