@@ -24,7 +24,7 @@
                 <td>{{alunno[0]}}</td>
                 <td>{{alunno[1]}}</td>
                 <td>{{alunno[2]}}</td>
-                <td>{{alunno[3]}}</td>
+                <td><a href="{{url_for('voti', studente=alunno[3])}}">{{ alunno[3] }}</a></td>
             </tr>
             {% endfor %}
         </tbody>
