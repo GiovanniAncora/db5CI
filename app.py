@@ -21,4 +21,12 @@ def voti(studente):
     risultatoVoti = cursore.fetchall()
     return render_template("voti.html", voti=risultatoVoti, campi= cursore.description)
 
+@app.route('/medie')
+def medie():
+    queryMedie = 'SELECT nome, cognome, AVG(voto) AS media FROM alunni, verifiche WHERE alunni.matricola = verifiche.studente GROUP BY studente'
+    cursore.execute(queryMedie)
+    risultatoMedie = cursore.fetchall()
+    # print(risultatoMedie)
+    return render_template("medie.html", medie=risultatoMedie, campi= cursore.description)
+
 app.run(debug=True)

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medie</title>
+</head>
+<body>
+    <table class="w3-table-all">
+        <thead>
+            <tr>
+                {% for c in campi %}
+                <th>{{ c[0].upper() }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in medie %}
+            <tr>
+                <td>{{ a[0] }}</td>
+                <td>{{ a[1] }}</td>
+                <td>{{ a[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
