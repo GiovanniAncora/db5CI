@@ -8,8 +8,13 @@
     <title>Alunni</title>
 </head>
 <body>
-    <h1 class="w3-h1 w3-orange">Tabella Dinamica Alunni</h1>
+    <h1 class="w3-container w3-orange w3-center">Tabella Dinamica Alunni</h1>
     <!-- <h4 class="w3-h4 w3-orange">da Giovanni Ancora</h4> -->
+
+    <div class="w3-container w3-margin-top w3-margin-bottom w3-center">
+        <a href="{{ url_for('medie') }}"><button class="w3-btn w3-round-large w3-red">Visualizza la tabella delle medie</button></a>
+    </div>
+
     <table class="w3-table-all w3-hoverable">
         <thead>
             <tr class="w3-cyan">
