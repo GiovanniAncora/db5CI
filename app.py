@@ -1,6 +1,8 @@
 import pymysql.cursors
 from flask import Flask, render_template, redirect, url_for, request, session
 
+# TODO Logout, implementa tabella protetta
+
 conn = pymysql.connect(host='172.16.12.54', user='ospite', password='ospite', database='db5CI')
 cursore = conn.cursor()
 
@@ -15,7 +17,7 @@ def index():
     risultato = cursore.fetchall()
     return render_template('index.html', alunni= risultato, campi= cursore.description)
 
-@app.route('/<studente>')
+@app.route('/voti/<studente>')
 def voti(studente):
     queryVoti = 'SELECT * FROM verifiche WHERE studente = %s'
     cursore.execute(queryVoti, (studente,))
@@ -62,6 +64,23 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return "Pagina di login"
+    if request.method == 'POST':
+        loginUser = request.form['username']
+        passUser = request.form['password']
+
+        queryControllo = "SELECT * FROM utenti WHERE username = %s;"
+        cursore.execute(queryControllo, (loginUser,))
+        risControllo = cursore.fetchall()
+
+        if risControllo:
+            if passUser == risControllo[0][1]:
+                print("Login effettuato.")
+                return redirect(url_for('voti', studente= risControllo[0][2]))
+            print("Password errata")
+            return redirect(url_for('login'))
+        print("Username non esistente")
+        return redirect(url_for('login'))
+
+    return render_template('login.html')
 
 app.run(debug=True)
