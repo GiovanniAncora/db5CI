@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrati</title>
+</head>
+<body>
+    <h1>Registrazione</h1>
+    <h2>Benvenuto!</h2>
+
+    <form method="post">
+        <input type="text" name="username" id="username">
+        <label for="username">Username:</label>
+
+        <input type="password" name="password" id="password">
+        <label for="password">Password:</label>
+
+        <input type="text" name="matricola" id="matricola">
+        <label for="matricola">Matricola:</label>
+
+        <button type="submit">Registrati</button>
+    </form>
+    <div><p>Oppure, effettua il <a href="{{url_for('login')}}">login</a></p></div>
+</body>
+</html>
